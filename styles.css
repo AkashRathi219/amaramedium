@@ -1,0 +1,587 @@
+:root {
+    /* Primary Palette */
+    --deep-teal: #2F6364;
+    --teal-mid: #326D80;
+    --navy-blue: #4F7599;
+    --lavender-grey: #7A78A6;
+    --dusty-purple: #A77AA5;
+    --soft-rose: #CA7E96;
+
+    /* Base Colors */
+    --snow: #F7F0F0;
+    --dark-grey: #484349;
+    --warm-grey: #B09A9D;
+
+    /* Fonts */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--snow);
+    color: var(--dark-grey);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    font-size: 18px;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 3rem;
+    color: var(--snow);
+    font-weight: 400;
+    letter-spacing: 1px;
+    /* font-style: italic; - Pinyon is naturally italic */
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+nav a {
+    color: var(--snow);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Hero Section */
+#hero {
+    height: 100vh;
+    background-image: linear-gradient(rgba(47, 99, 100, 0.4), rgba(47, 99, 100, 0.6)), url('assets/hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--snow);
+    padding: 0 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    line-height: 1.4;
+    font-weight: 400;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Intro Section */
+#intro {
+    padding: 8rem 2rem;
+    text-align: center;
+    background-color: var(--snow);
+}
+
+.intro-text {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    font-size: 1.25rem;
+    color: var(--dark-grey);
+    font-weight: 300;
+}
+
+/* Journey Map */
+#journey-map {
+    padding: 6rem 2rem;
+    background-color: var(--snow);
+    /* Can change to slight off-white if needed to distinguish */
+    text-align: center;
+}
+
+.map-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto 4rem;
+    height: 400px;
+    /* Fixed height for the pillars */
+}
+
+.card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0.5;
+    transition: all 0.5s ease;
+    cursor: default;
+    border-radius: 8px;
+    /* Slight softening */
+    color: var(--snow);
+    /* Default text color for cards */
+}
+
+.card:hover {
+    opacity: 1;
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Card Specifics */
+.card-ache {
+    background-color: var(--dark-grey);
+    /* Logo ref #484349 is dark grey */
+}
+
+.card-longing {
+    background-color: var(--warm-grey);
+    /* #B09A9D */
+}
+
+.card-unspoken {
+    background-color: #E0DADA;
+    /* Slightly darker than snow for contrast */
+    color: var(--dark-grey);
+    /* Text needs to be dark here */
+    border: 1px solid #dcdcdc;
+}
+
+.card-connection {
+    background-color: var(--deep-teal);
+    /* #2F6364 */
+}
+
+.map-footer {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--deep-teal);
+}
+
+/* Services */
+#services {
+    padding: 6rem 2rem;
+    background-color: #FFF;
+    /* Pure white to break up sections */
+}
+
+#services h2 {
+    text-align: center;
+    color: var(--deep-teal);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.section-blurb {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem;
+    font-size: 1.1rem;
+    color: var(--navy-blue);
+}
+
+.services-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    border: 2px solid var(--deep-teal);
+    padding: 3rem;
+    width: 100%;
+    max-width: 450px;
+    text-align: left;
+    transition: all 0.4s ease;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.service-card:hover {
+    background-color: var(--deep-teal);
+    color: var(--snow);
+    transform: scale(1.02);
+}
+
+.service-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--deep-teal);
+}
+
+.service-card:hover h3 {
+    color: var(--snow);
+}
+
+.service-card p {
+    font-size: 1.1rem;
+}
+
+/* Services CTA */
+.services-cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.about-cta {
+    margin-top: 2rem;
+    /* Inherits left align from parent */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: var(--deep-teal);
+    color: var(--snow);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--deep-teal);
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: var(--deep-teal);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(47, 99, 100, 0.2);
+}
+
+/* What to Expect */
+#expect {
+    padding: 6rem 2rem;
+    background-color: var(--snow);
+}
+
+.expect-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+#expect h2 {
+    font-size: 2.5rem;
+    color: var(--dusty-purple);
+    margin-bottom: 1.5rem;
+}
+
+.expect-intro {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+}
+
+.elegant-list {
+    list-style: none;
+}
+
+.elegant-list li {
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.elegant-list li::before {
+    content: "→";
+    /* Simple elegant arrow */
+    position: absolute;
+    left: 0;
+    color: var(--soft-rose);
+    font-size: 1.2rem;
+}
+
+.expect-image img {
+    width: 100%;
+    height: 400px;
+    /* Keep consistent height */
+    object-fit: cover;
+    border-radius: 100px 100px 0 0;
+    /* Arch shape */
+    display: block;
+}
+
+/* About Section */
+#about {
+    padding: 8rem 2rem;
+    background-color: #FFF;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 20px 20px 0 var(--soft-rose);
+    /* Accent color block behind */
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    color: var(--deep-teal);
+    margin-bottom: 1.5rem;
+}
+
+.about-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.cta-text {
+    font-family: var(--font-heading);
+    color: var(--teal-mid);
+    font-size: 1.3rem;
+    font-style: italic;
+    border-left: 4px solid var(--soft-rose);
+    padding-left: 1.5rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--deep-teal);
+    color: var(--snow);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+}
+
+/* Testimonials Section */
+#testimonials {
+    padding: 8rem 2rem;
+    background-color: #FDFBFB;
+    /* Very subtle off-white */
+}
+
+#testimonials h2 {
+    text-align: center;
+    color: var(--deep-teal);
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.testimonial-grid-row-1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.testimonial-row-2 {
+    display: flex;
+    /* Or grid with 2 cols centered */
+    justify-content: center;
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center image/content */
+}
+
+/* Specific adjustment for row 2 to limited width if needed, 
+   but flex with gap works well. Let's maximize width for readability */
+.testimonial-row-2 .testimonial-card {
+    flex: 1;
+    max-width: 600px;
+    /* Prevent them from getting too wide/thin */
+}
+
+.testimonial-img {
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.img-placeholder {
+    width: 80px;
+    height: 80px;
+    background-color: var(--soft-rose);
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.testimonial-card blockquote {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--dark-grey);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    text-align: center;
+    /* Center text as per 'spiritual/comforting' usually looks good, or left */
+    max-height: 12rem;
+    /* Truncated height */
+    overflow-y: auto;
+    /* Enable vertical scroll */
+    padding-right: 10px;
+    /* Space for scrollbar */
+    /* Custom scrollbar styling */
+    scrollbar-width: thin;
+    scrollbar-color: var(--soft-rose) transparent;
+}
+
+.testimonial-card blockquote::-webkit-scrollbar {
+    width: 6px;
+}
+
+.testimonial-card blockquote::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.testimonial-card blockquote::-webkit-scrollbar-thumb {
+    background-color: var(--soft-rose);
+    border-radius: 20px;
+    border: 2px solid transparent;
+    /* Padding effect */
+    background-clip: content-box;
+}
+
+.testimonial-card cite {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--deep-teal);
+    font-style: normal;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .header {
+        padding: 1.5rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    nav {
+        display: none;
+        /* Hide nav for simple prototype or add hamburger logic */
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .map-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .card {
+        opacity: 1;
+        /* Reset opacity on mobile or keep interaction? user asked for interaction. Keeping interaction but ensuring visibility */
+        margin-bottom: 1rem;
+        min-height: 150px;
+        /* Ensure space for text */
+    }
+
+    .expect-grid,
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-image {
+        order: -1;
+        /* Image first on mobile? Or standard vertical stack */
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .testimonial-grid-row-1,
+    .testimonial-row-2 {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        display: grid;
+        /* enforce grid on mobile for consistency */
+    }
+
+    .testimonial-row-2 .testimonial-card {
+        max-width: 100%;
+    }
+}
