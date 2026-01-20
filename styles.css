@@ -102,6 +102,20 @@ nav a {
     padding: 0 2rem;
 }
 
+/* Mobile Specific Styles (Chrome & Safari) */
+@media screen and (max-width: 768px) {
+    #hero {
+        /* Swap the background image here */
+        background-image: linear-gradient(rgba(47, 99, 100, 0.4), rgba(47, 99, 100, 0.6)), url('assets/hero-mobile-bg.jpeg');
+        
+        /* Mobile Safari fix: 'fixed' background-attachment often causes zoom/blur issues */
+        background-attachment: scroll; 
+        
+        /* Adjust height if you want to avoid the address bar jump on mobile Chrome/Safari */
+        height: 100svh; 
+    }
+}
+
 .hero-content h1 {
     font-size: 3rem;
     line-height: 1.4;
