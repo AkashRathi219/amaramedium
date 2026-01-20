@@ -528,60 +528,177 @@ footer {
     letter-spacing: 1px;
 }
 
+/* Mobile Hamburger */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger .line {
+    width: 25px;
+    height: 3px;
+    background-color: var(--snow);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-    .header {
-        padding: 1.5rem;
+
+    /* Global Adjustments */
+    .container {
+        padding: 0 1.5rem;
     }
 
-    .logo {
-        font-size: 1.5rem;
+    h1 {
+        font-size: 2.2rem;
     }
 
-    nav {
-        display: none;
-        /* Hide nav for simple prototype or add hamburger logic */
-    }
-
-    .hero-content h1 {
+    h2 {
         font-size: 2rem;
     }
 
+    /* Header & Nav */
+    header {
+        padding: 1.5rem 2rem;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+        z-index: 20;
+    }
+
+    .hamburger {
+        display: block;
+        z-index: 20;
+    }
+
+    .hamburger.toggle .line:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.toggle .line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.toggle .line:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .nav-links {
+        position: fixed;
+        background: var(--deep-teal);
+        height: 100vh;
+        width: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        clip-path: circle(100px at 90% -10%);
+        -webkit-clip-path: circle(100px at 90% -10%);
+        transition: all 0.8s ease-out;
+        pointer-events: none;
+        z-index: 15;
+    }
+
+    .nav-links.open {
+        clip-path: circle(1000px at 90% -10%);
+        -webkit-clip-path: circle(1000px at 90% -10%);
+        pointer-events: all;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .nav-links li {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s ease;
+    }
+
+    .nav-links.open li {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
+    }
+
+    /* Hero */
+    .hero-content h1 {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+
+    /* Sections Padding */
+    #intro,
+    #journey-map,
+    #services,
+    #expect,
+    #about,
+    #testimonials {
+        padding: 4rem 1.5rem;
+    }
+
+    /* Journey Map */
     .map-container {
         flex-direction: column;
         height: auto;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
     }
 
     .card {
         opacity: 1;
-        /* Reset opacity on mobile or keep interaction? user asked for interaction. Keeping interaction but ensuring visibility */
-        margin-bottom: 1rem;
-        min-height: 150px;
-        /* Ensure space for text */
+        margin-bottom: 0;
+        min-height: auto;
     }
 
-    .expect-grid,
+    /* Services */
+    .services-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    /* Expect */
+    .expect-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .expect-image img {
+        height: 300px;
+    }
+
+    /* About */
     .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-image {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    /* Testimonials */
+    .testimonial-grid-row-1 {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
 
-    .about-image {
-        order: -1;
-        /* Image first on mobile? Or standard vertical stack */
-        max-width: 300px;
-        margin: 0 auto;
-    }
-
-    .testimonial-grid-row-1,
     .testimonial-row-2 {
-        grid-template-columns: 1fr;
         flex-direction: column;
-        display: grid;
-        /* enforce grid on mobile for consistency */
+        align-items: center;
+        gap: 2rem;
     }
 
-    .testimonial-row-2 .testimonial-card {
-        max-width: 100%;
+    .testimonial-card blockquote {
+        max-height: none;
+        /* Expand fully on mobile for better reading */
+        overflow-y: visible;
     }
 }
