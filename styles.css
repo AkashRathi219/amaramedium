@@ -532,14 +532,35 @@ footer {
     background-clip: content-box;
 }
 
+/* Updated Cite styling to act as a container */
 .testimonial-card cite {
     font-family: var(--font-heading);
-    font-weight: 700;
     color: var(--deep-teal);
     font-style: normal;
+    display: flex;
+    flex-direction: column; /* Stacks name and designation */
+    align-items: center;    /* Centers them under the quote */
+    gap: 4px;               /* Small space between name and title */
+}
+
+/* Specific styling for the Name */
+.testimonial-name {
+    font-weight: 700;
     text-transform: uppercase;
     font-size: 0.9rem;
     letter-spacing: 1px;
+    display: block;
+}
+
+/* New styling for the Designation */
+.testimonial-designation {
+    font-family: var(--font-body); /* Using body font for contrast */
+    font-weight: 400;
+    text-transform: none;          /* Keeps it readable */
+    font-size: 0.8rem;
+    color: var(--warm-grey);       /* Using your existing warm-grey variable */
+    letter-spacing: 0.5px;
+    font-style: italic;
 }
 
 /* Mobile Hamburger */
